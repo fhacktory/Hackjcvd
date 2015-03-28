@@ -12,11 +12,6 @@ Movie movie;
 Capture capture;
 int numPixels;
 
-int blockSize = 10;
-PImage img;
-color greenMask = -15883483;
-
-
 void setup() {
   size(1280, 720);
   background(0);
@@ -31,7 +26,6 @@ void setup() {
   movie = new Movie(this, "jcvd.mp4");
   movie.loop();
   numPixels = width;
-  myMovieColors = new color[numPixels * numPixels];
 }
 
 void draw() {
@@ -53,25 +47,18 @@ void draw() {
 
       float distToGreen = (r-13) * (r-13) + (g-163) * (g-163) + (b - 37) * (b - 37); 
 
+      // check if jcvd is green
       if (distToGreen < 10000) {
+        // display capture horizontally flipped
         int loc2 = (width - i - 1) + j*numPixels;
         pixels[loc] = capture.pixels[loc2];
       }
       else
+        // display jcvd
         pixels[loc] = movie.pixels[loc];
     }
   }  
   updatePixels();
 }
 
-void mousePressed() {
-  int x=mouseX;
-  int y=mouseY;
-  color cVert=get(x, y);
-  float r = red   (get(x, y));
-  float g = green (get(x, y));
-  float b = blue  (get(x, y));
-  //  println(r+" "+g+" "+b );
-  println(cVert);
-}
 
