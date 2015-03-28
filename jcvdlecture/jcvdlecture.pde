@@ -13,8 +13,6 @@ Capture capture;
 int numPixels;
 
 int blockSize = 10;
-//Movie myMovie;
-color myMovieColors[];
 PImage img;
 color greenMask = -15883483;
 
@@ -36,17 +34,6 @@ void setup() {
   myMovieColors = new color[numPixels * numPixels];
 }
 
-/*void movieEvent(Movie m) {
- m.read();
- m.loadPixels();
- // img.loadPixels();
- for (int j = 0; j < numPixels; j++) {
- for (int i = 0; i < numPixels; i++) {
- myMovieColors[j*numPixels + i] = m.get(i, j);
- }
- }
- }*/
-
 void draw() {
   if (capture.available()) {
     capture.read(); // Read a new video frame
@@ -66,10 +53,12 @@ void draw() {
 
       float distToGreen = (r-13) * (r-13) + (g-163) * (g-163) + (b - 37) * (b - 37); 
 
-      if (c != greenMask)
-        pixels[loc] = movie.pixels[loc];
+      if (distToGreen < 10000) {
+        int loc2 = (width - i - 1) + j*numPixels;
+        pixels[loc] = capture.pixels[loc2];
+      }
       else
-        pixels[loc] = capture.pixels[loc];
+        pixels[loc] = movie.pixels[loc];
     }
   }  
   updatePixels();
