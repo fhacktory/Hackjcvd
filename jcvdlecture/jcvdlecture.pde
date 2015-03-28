@@ -23,6 +23,7 @@ void setup() {
   loadPixels();
 
   // Load and play the video in a loop
+  // movie = new Movie(this, "jcvd.mp4");
   movie = new Movie(this, "jcvd.mp4");
   movie.loop();
   numPixels = width;
@@ -52,13 +53,11 @@ void draw() {
         // display capture horizontally flipped
         int loc2 = (width - i - 1) + j*numPixels;
         pixels[loc] = capture.pixels[loc2];
-      }
-      else
+      } else
         // display jcvd
-        pixels[loc] = movie.pixels[loc];
+      pixels[loc] = movie.pixels[loc];
     }
   }  
   updatePixels();
 }
-
 
