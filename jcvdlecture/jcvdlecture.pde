@@ -24,7 +24,7 @@ void setup() {
 
   // Load and play the video in a loop
   // movie = new Movie(this, "jcvd.mp4");
-  movie = new Movie(this, "jcvd.mp4");
+  movie = new Movie(this, "jcvdcut.mkv");
   movie.loop();
   numPixels = width;
 }
