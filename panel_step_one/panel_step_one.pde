@@ -29,18 +29,19 @@ void setup() {
     size(640, 360);
     createGUI();
     customGUI();
-    println("pas sette");
+  //  println("pas sette");
+    vo = new VideoOutput(this.g, sketchPath, "export/jeanClaude.mp4", 30);
   }
 
 
 
   if (!flag) {
-    println("pas sette 2");
+  //  println("pas sette 2");
 
     return;
   }
 
-  println("c'est sette ");
+ // println("c'est sette ");
 
   // initialize capture
   capture = new Capture(this, width, height);
@@ -66,10 +67,10 @@ void setup() {
 }
 
 void draw() {
-  println("debut draw ");
+ // println("debut draw ");
 
   if (!flag) {
-    println("pas sete draw ");
+   // println("pas sete draw ");
 
     return;
   }
@@ -81,9 +82,9 @@ void draw() {
     movie.read();
   }
   // get sound recorder
-  minim = new Minim(this);
-  in = minim.getLineIn();
-  recorder = minim.createRecorder(in, "export/sound.wav");
+//  minim = new Minim(this);
+ // in = minim.getLineIn();
+ // recorder = minim.createRecorder(in, "export/sound.wav");
 
   textFont(createFont("Arial", 12));
 
@@ -112,7 +113,7 @@ void draw() {
   // draw the waveforms
 
     if ( recorder.isRecording() ) {
-    text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
+   // text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
     //saveFrame("export/img"+String.format("%05d", nb)+".tga");
     //nb++;
     vo.saveFrame();
@@ -125,6 +126,9 @@ void draw() {
 
 void keyReleased()
 {
+   if ( key == 's' ) 
+  {exit();
+  }
   if ( key == 'r' ) 
   {
     // to indicate that you want to start or stop capturing audio data, you must call
@@ -154,5 +158,6 @@ public void loadVideo(int i) {
     flag = false;
   }
   videoId = i;
+  
   setup();
 }
