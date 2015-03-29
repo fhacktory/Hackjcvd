@@ -63,13 +63,13 @@ public void createGUI(){
   imgButton3 = new GImageButton(this, 10, 98, 100, 60, new String[] { "data/image_button/img1.tga", "data/image_button/img1.tga", "data/image_button/img1.tga" } );
   imgButton3.addEventHandler(this, "imgButton3_click1");
   label1 = new GLabel(this, 17, 170, 80, 20);
-  label1.setText("Kick");
+  label1.setText("Kata");
   label1.setOpaque(false);
   label2 = new GLabel(this, 165, 171, 80, 20);
-  label2.setText("Gun");
+  label2.setText("Off");
   label2.setOpaque(false);
   label3 = new GLabel(this, 331, 166, 80, 20);
-  label3.setText("Bonus");
+  label3.setText("Armed");
   label3.setOpaque(false);
   panel1.addControl(imgButton1);
   panel1.addControl(imgButton2);
@@ -88,6 +88,3 @@ GImageButton imgButton3;
 GLabel label1; 
 GLabel label2; 
 GLabel label3; 
-
-
-
