@@ -1,26 +1,29 @@
-/**
- * Loop.
- *
- * Shows how to load and play a QuickTime movie file.
- *
- */
-
 import processing.video.*;
 import ddf.minim.*;
+import com.hamoid.*;
 
+//Audio
 Minim minim;
 AudioInput in;
 AudioRecorder recorder;
 
+// movie
 Movie movie;
 
+//camera
 Capture capture;
 int numPixels;
+
+// saveframe
 int nb=0;
+
+//VideoOutput 
+VideoExport videoExport;
 
 void setup() {
   size(1280, 720);
   background(0);
+  frameRate(30);
 
   // initialize capture
   capture = new Capture(this, width, height);
@@ -39,6 +42,9 @@ void setup() {
   recorder = minim.createRecorder(in, "export/sound.wav");
 
   textFont(createFont("Arial", 12));
+
+  //sauvegarde
+  videoExport = new VideoExport(this,  "export/jeanClaude.mp4");
 }
 
 void draw() {
@@ -76,8 +82,9 @@ void draw() {
 
     if ( recorder.isRecording() ) {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
-    saveFrame("export/img"+String.format("%05d", nb)+".tga");
-    nb++;
+    // saveFrame("export/img"+String.format("%05d", nb)+".tga");
+    // nb++;
+    videoExport.saveFrame();
   } else
   {
     text("Appuyer sur R pour enregistrer.", 5, 15);
@@ -103,4 +110,3 @@ void keyReleased()
     }
   }
 }
-
