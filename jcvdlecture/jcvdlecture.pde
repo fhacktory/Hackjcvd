@@ -1,26 +1,28 @@
-/**
- * Loop.
- *
- * Shows how to load and play a QuickTime movie file.
- *
- */
-
 import processing.video.*;
 import ddf.minim.*;
 
+//Audio
 Minim minim;
 AudioInput in;
 AudioRecorder recorder;
 
+// movie
 Movie movie;
 
+//camera
 Capture capture;
 int numPixels;
-int nb=0;
+
+// saveframe
+//int nb=0;
+
+//VideoOutput 
+VideoOutput vo;
 
 void setup() {
   size(1280, 720);
   background(0);
+  frameRate(30);
 
   // initialize capture
   capture = new Capture(this, width, height);
@@ -30,6 +32,7 @@ void setup() {
 
   // Load and play the video in a loop
   movie = new Movie(this, "jcvd.mp4");
+
   movie.loop();
   numPixels = width;
 
@@ -39,6 +42,10 @@ void setup() {
   recorder = minim.createRecorder(in, "export/sound.wav");
 
   textFont(createFont("Arial", 12));
+
+  //sauvegarde
+
+  vo = new VideoOutput(this.g, sketchPath, "export/jeanClaude.mp4", 30);
 }
 
 void draw() {
@@ -76,8 +83,9 @@ void draw() {
 
     if ( recorder.isRecording() ) {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
-    saveFrame("export/img"+String.format("%05d", nb)+".tga");
-    nb++;
+    // saveFrame("export/img"+String.format("%05d", nb)+".tga");
+    // nb++;
+    vo.saveFrame();
   } else
   {
     text("Appuyer sur R pour enregistrer.", 5, 15);
@@ -95,12 +103,16 @@ void keyReleased()
     // (in the case of buffered recording) or to the end of the file (in the case of streamed recording). 
     if ( recorder.isRecording() ) 
     {
+      movie.stop();
+      capture.stop();
+
       recorder.endRecord();
       recorder.save();
+      vo.close();
+      // exit();
     } else 
     {
       recorder.beginRecord();
     }
   }
 }
-
