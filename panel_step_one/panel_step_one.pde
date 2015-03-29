@@ -22,46 +22,54 @@ Capture capture;
 int numPixels;
 int nb=0;
 
+VideoOutput vo;
+
 void setup() {
-  if(!flag){
-    size(1280, 720);
-  createGUI();
-  customGUI();
-  println("pas sette");
+  if (!flag) {
+    size(640, 360);
+    createGUI();
+    customGUI();
+    println("pas sette");
   }
 
-  
-  
-   if(!flag){
-       println("pas sette 2");
+
+
+  if (!flag) {
+    println("pas sette 2");
 
     return;
   }
-  
-         println("c'est sette ");
 
-   // initialize capture
+  println("c'est sette ");
+
+  // initialize capture
   capture = new Capture(this, width, height);
   capture.start();
   numPixels = capture.width * capture.height;
   loadPixels();
-    String[]  paths;
-  paths = new String[]{"jcvd.mp4","jcvd.mp4","jcvd.mp4"};
-  
- 
+  String[]  paths;
+  paths = new String[] {
+    "kata1.mp4", "armed.mp4", "off.mp4"
+  };
+
+
 
   // Load and play the video in a loop
-    movie = new Movie(this, paths[videoId]);
+  movie = new Movie(this, paths[videoId]);
   movie.loop();
   numPixels = width;
-
+  
+  // get sound recorder
+  minim = new Minim(this);
+  in = minim.getLineIn();
+  recorder = minim.createRecorder(in, "export/sound.wav");
 }
 
 void draw() {
-           println("debut draw ");
+  println("debut draw ");
 
-    if(!flag){
-                 println("pas sete draw ");
+  if (!flag) {
+    println("pas sete draw ");
 
     return;
   }
@@ -72,7 +80,7 @@ void draw() {
   if (movie.available() == true) {
     movie.read();
   }
-    // get sound recorder
+  // get sound recorder
   minim = new Minim(this);
   in = minim.getLineIn();
   recorder = minim.createRecorder(in, "export/sound.wav");
@@ -105,8 +113,9 @@ void draw() {
 
     if ( recorder.isRecording() ) {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
-    saveFrame("export/img"+String.format("%05d", nb)+".tga");
-    nb++;
+    //saveFrame("export/img"+String.format("%05d", nb)+".tga");
+    //nb++;
+    vo.saveFrame();
   } else
   {
     text("Appuyer sur R pour enregistrer.", 5, 15);
@@ -126,6 +135,7 @@ void keyReleased()
     {
       recorder.endRecord();
       recorder.save();
+      vo.close();
     } else 
     {
       recorder.beginRecord();
@@ -134,16 +144,15 @@ void keyReleased()
 }
 // Use this method to add additional statements
 // to customise the GUI controls
-public void customGUI(){
-
+public void customGUI() {
 }
 
-public void loadVideo(int i){
- flag = true;
+public void loadVideo(int i) {
+  flag = true;
 
-  if(i<0){
+  if (i<0) {
     flag = false;
   }
-videoId = i;
-setup();
+  videoId = i;
+  setup();
 }
