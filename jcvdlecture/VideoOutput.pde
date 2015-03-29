@@ -44,11 +44,11 @@ class VideoOutput {
 
     String ffmpegPath = "ffmpeg";
     Tools tools = new Tools();
-    if(tools.getOS() == Tools.MACOSX)
+    if(tools.getOS() == MACOSX)
       ffmpegPath = "/usr/local/bin/ffmpeg";
       
     pb = new ProcessBuilder(
-    "ffmpegPath", // path to ffmpeg. In Windows probably ffmpeg.exe 
+    ffmpegPath, // path to ffmpeg. In Windows probably ffmpeg.exe 
     "-y", // overwrite, otherwise it fails the second time you run it
     "-f", "rawvideo", 
     "-vcodec", "rawvideo", 
