@@ -92,6 +92,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/nl.x-services.plugins.videocaptureplus/www/VideoCapturePlus.js",
+        "id": "nl.x-services.plugins.videocaptureplus.VideoCapturePlus",
+        "clobbers": [
+            "window.plugins.videocaptureplus"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -244,6 +251,7 @@ module.exports.metadata =
     "org.apache.cordova.camera": "0.3.6",
     "org.apache.cordova.media": "0.2.16",
     "org.apache.cordova.media-capture": "0.3.6",
+    "nl.x-services.plugins.videocaptureplus": "1.3.0",
     "org.apache.cordova.file": "1.3.3"
 }
 // BOTTOM OF METADATA

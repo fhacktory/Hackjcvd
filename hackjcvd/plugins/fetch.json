@@ -22,5 +22,12 @@
             "type": "registry",
             "id": "org.apache.cordova.media-capture"
         }
+    },
+    "nl.x-services.plugins.videocaptureplus": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin.git",
+            "subdir": "."
+        }
     }
 }

@@ -50,6 +50,7 @@
 		EDA8D8572944459B8DB28A75 /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE933A0D5C948EFB2FF11C5 /* CDVCamera.m */; };
 		F41EEF0B979540369440D7C8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2C221CB4D94A2086991A0C /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FD01E35B9BD04306AB5CF0F4 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = E40C88B852A74D13B3A40D85 /* UIImage+CropScaleOrientation.m */; };
+		A93815FAD7744A7CB71235CD /* VideoCapturePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C343B1CED44B25AC4654A7 /* VideoCapturePlus.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,8 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F31DDD2077B14BCF98230F77 /* CDVExif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVExif.h; path = org.apache.cordova.camera/CDVExif.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Hello World/config.xml"; sourceTree = "<group>"; };
+		19C343B1CED44B25AC4654A7 /* VideoCapturePlus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "VideoCapturePlus.m"; path = "nl.x-services.plugins.videocaptureplus/VideoCapturePlus.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A99FDA5810B244D0A5B1FF80 /* VideoCapturePlus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VideoCapturePlus.h"; path = "nl.x-services.plugins.videocaptureplus/VideoCapturePlus.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,8 @@
 				83CB6B313F384FCEBE9856E6 /* CDVSound.h */,
 				663C52332DE54491B3B0DA9D /* CDVCapture.m */,
 				A148A189FED840DCA8EB2D26 /* CDVCapture.h */,
+				19C343B1CED44B25AC4654A7 /* VideoCapturePlus.m */,
+				A99FDA5810B244D0A5B1FF80 /* VideoCapturePlus.h */,
 			);
 			name = Plugins;
 			path = "Hello World/Plugins";
@@ -451,6 +456,7 @@
 				E4C4647356554B2AB5B8B087 /* CDVAssetLibraryFilesystem.m in Sources */,
 				013089C80EA548B783A62558 /* CDVSound.m in Sources */,
 				9B351A5189E746ABB1A526E3 /* CDVCapture.m in Sources */,
+				A93815FAD7744A7CB71235CD /* VideoCapturePlus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

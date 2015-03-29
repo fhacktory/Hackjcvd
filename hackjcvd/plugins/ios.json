@@ -22,7 +22,7 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": false,
-                            "count": 3
+                            "count": 4
                         }
                     ],
                     "AssetsLibrary.framework": [
@@ -34,7 +34,7 @@
                     "MobileCoreServices.framework": [
                         {
                             "xml": false,
-                            "count": 3
+                            "count": 4
                         }
                     ]
                 }
@@ -61,6 +61,10 @@
                         {
                             "xml": "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"VideoCapturePlus\"><param name=\"ios-package\" value=\"VideoCapturePlus\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -85,6 +89,9 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "org.apache.cordova.media-capture": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "nl.x-services.plugins.videocaptureplus": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
