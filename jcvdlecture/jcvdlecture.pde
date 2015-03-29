@@ -20,7 +20,7 @@ int numPixels;
 VideoOutput vo;
 
 void setup() {
-  size(1280, 720);
+  size(640, 360);
   background(0);
   frameRate(30);
 
@@ -31,7 +31,7 @@ void setup() {
   loadPixels();
 
   // Load and play the video in a loop
-  movie = new Movie(this, "jcvd.mp4");
+  movie = new Movie(this, "kata1.mp4");
 
   movie.loop();
   numPixels = width;
