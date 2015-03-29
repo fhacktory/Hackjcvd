@@ -23,8 +23,8 @@ void setup() {
   loadPixels();
 
   // Load and play the video in a loop
-  // movie = new Movie(this, "jcvd.mp4");
-  movie = new Movie(this, "jcvdcut.mkv");
+  //movie = new Movie(this, "jcvd.mp4");
+  movie = new Movie(this, "jcvdcut.mp4");
   movie.loop();
   numPixels = width;
 }
