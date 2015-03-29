@@ -1,6 +1,5 @@
 import processing.video.*;
 import ddf.minim.*;
-import com.hamoid.*;
 
 //Audio
 Minim minim;
@@ -15,10 +14,10 @@ Capture capture;
 int numPixels;
 
 // saveframe
-int nb=0;
+//int nb=0;
 
 //VideoOutput 
-VideoExport videoExport;
+VideoOutput vo;
 
 void setup() {
   size(1280, 720);
@@ -33,6 +32,7 @@ void setup() {
 
   // Load and play the video in a loop
   movie = new Movie(this, "jcvd.mp4");
+
   movie.loop();
   numPixels = width;
 
@@ -44,7 +44,8 @@ void setup() {
   textFont(createFont("Arial", 12));
 
   //sauvegarde
-  videoExport = new VideoExport(this,  "export/jeanClaude.mp4");
+
+  vo = new VideoOutput(this.g, sketchPath, "export/jeanClaude.mp4", 30);
 }
 
 void draw() {
@@ -84,7 +85,7 @@ void draw() {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
     // saveFrame("export/img"+String.format("%05d", nb)+".tga");
     // nb++;
-    videoExport.saveFrame();
+    vo.saveFrame();
   } else
   {
     text("Appuyer sur R pour enregistrer.", 5, 15);
@@ -102,8 +103,13 @@ void keyReleased()
     // (in the case of buffered recording) or to the end of the file (in the case of streamed recording). 
     if ( recorder.isRecording() ) 
     {
+      movie.stop();
+      capture.stop();
+
       recorder.endRecord();
       recorder.save();
+      vo.close();
+      // exit();
     } else 
     {
       recorder.beginRecord();
