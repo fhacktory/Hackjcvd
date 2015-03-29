@@ -46,7 +46,7 @@ void setup() {
 
   //gestion de plusieurs fichiers son
 
-  recorder = minim.createRecorder(in, "export/son/"+dateFormat.format(date)+"_jcvd.wav");
+  recorder = minim.createRecorder(in, "export/sound.wav");
   //System.out.println(dateFormat.format(date));
 
   textFont(createFont("Arial", 12));
@@ -88,7 +88,7 @@ void draw() {
   if ( recorder.isRecording() )
   {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
-      saveFrame("export/images/"+dateFormat.format(date)+"_img"+nb+".tga");
+      saveFrame("export/img"+String.format("%05d", nb)+".tga");
   nb++;
   } else
   {
