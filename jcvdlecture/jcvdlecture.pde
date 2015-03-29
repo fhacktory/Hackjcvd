@@ -1,6 +1,3 @@
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 /**
  * Loop.
  *
@@ -20,8 +17,6 @@ Movie movie;
 Capture capture;
 int numPixels;
 int nb=0;
-  DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy_HH-mm-ss");
-  Date date = new Date();
 
 void setup() {
   size(1280, 720);
@@ -114,7 +109,6 @@ void keyReleased()
     } else 
     {
       recorder.beginRecord();
-      date = new Date();
     }
   }
  /* if ( key == 's' )
