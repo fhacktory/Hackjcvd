@@ -6,11 +6,17 @@
  */
 
 import processing.video.*;
+import ddf.minim.*;
+
+Minim minim;
+AudioInput in;
+AudioRecorder recorder;
 
 Movie movie;
 
 Capture capture;
 int numPixels;
+int nb=0;
 
 void setup() {
   size(1280, 720);
@@ -23,10 +29,16 @@ void setup() {
   loadPixels();
 
   // Load and play the video in a loop
-  //movie = new Movie(this, "jcvd.mp4");
-  movie = new Movie(this, "jcvdcut.mp4");
+  movie = new Movie(this, "jcvd.mp4");
   movie.loop();
   numPixels = width;
+
+  // get sound recorder
+  minim = new Minim(this);
+  in = minim.getLineIn();
+  recorder = minim.createRecorder(in, "export/sound.wav");
+
+  textFont(createFont("Arial", 12));
 }
 
 void draw() {
@@ -59,5 +71,36 @@ void draw() {
     }
   }  
   updatePixels();
+
+  // draw the waveforms
+
+    if ( recorder.isRecording() ) {
+    text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
+    saveFrame("export/img"+String.format("%05d", nb)+".tga");
+    nb++;
+  } else
+  {
+    text("Appuyer sur R pour enregistrer.", 5, 15);
+  }
+}
+
+
+void keyReleased()
+{
+  if ( key == 'r' ) 
+  {
+    // to indicate that you want to start or stop capturing audio data, you must call
+    // beginRecord() and endRecord() on the AudioRecorder object. You can start and stop
+    // as many times as you like, the audio data will be appended to the end of the buffer 
+    // (in the case of buffered recording) or to the end of the file (in the case of streamed recording). 
+    if ( recorder.isRecording() ) 
+    {
+      recorder.endRecord();
+      recorder.save();
+    } else 
+    {
+      recorder.beginRecord();
+    }
+  }
 }
 
