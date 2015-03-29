@@ -29,20 +29,14 @@ void setup() {
   loadPixels();
 
   // Load and play the video in a loop
- // movie = new Movie(this, "https://github.com/fhacktory/hackjcvd/blob/master/jcvdlecture/data/jcvd.mp4?raw=true");
- movie = new Movie(this, "jcvd.mp4");
+  movie = new Movie(this, "jcvd.mp4");
   movie.loop();
   numPixels = width;
 
   // get sound recorder
   minim = new Minim(this);
   in = minim.getLineIn();
-  //recorder = minim.createRecorder(in, "myrecording.wav");
-
-  //gestion de plusieurs fichiers son
-
   recorder = minim.createRecorder(in, "export/sound.wav");
-  //System.out.println(dateFormat.format(date));
 
   textFont(createFont("Arial", 12));
 }
@@ -80,17 +74,14 @@ void draw() {
 
   // draw the waveforms
 
-  if ( recorder.isRecording() )
-  {
+    if ( recorder.isRecording() ) {
     text("Enregistrement en cours, appuyez sur R pour arrêter...", 5, 15);
-      saveFrame("export/img"+String.format("%05d", nb)+".tga");
-  nb++;
+    saveFrame("export/img"+String.format("%05d", nb)+".tga");
+    nb++;
   } else
   {
     text("Appuyer sur R pour enregistrer.", 5, 15);
   }
-  
-
 }
 
 
@@ -111,18 +102,5 @@ void keyReleased()
       recorder.beginRecord();
     }
   }
- /* if ( key == 's' )
-  {
-    // we've filled the file out buffer, 
-    // now write it to the file we specified in createRecorder
-    // in the case of buffered recording, if the buffer is large, 
-    // this will appear to freeze the sketch for sometime
-    // in the case of streamed recording, 
-    // it will not freeze as the data is already in the file and all that is being done
-    // is closing the file.
-    // the method returns the recorded audio as an AudioRecording, 
-    // see the example  AudioRecorder >> RecordAndPlayback for more about that
-    recorder.save();
-    println("Done saving.");
-  }*/
 }
+
