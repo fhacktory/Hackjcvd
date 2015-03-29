@@ -1,0 +1,33 @@
+{
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        }
+    },
+    "org.apache.cordova.media": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media"
+        }
+    },
+    "org.apache.cordova.file": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.file"
+        }
+    },
+    "org.apache.cordova.media-capture": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media-capture"
+        }
+    },
+    "nl.x-services.plugins.videocaptureplus": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/VideoCapturePlus-PhoneGap-Plugin.git",
+            "subdir": "."
+        }
+    }
+}
