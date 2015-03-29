@@ -1,28 +1,30 @@
-ffmpeg version N-71120-g56b7aa2 Copyright (c) 2000-2015 the FFmpeg developers
-  built with gcc 4.9.2 (GCC)
-  configuration: --enable-gpl --enable-version3 --disable-w32threads --enable-avisynth --enable-bzlib --enable-fontconfig --enable-frei0r --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libdcadec --enable-libfreetype --enable-libgme --enable-libgsm --enable-libilbc --enable-libmodplug --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-librtmp --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-lzma --enable-decklink --enable-zlib
-  libavutil      54. 20.101 / 54. 20.101
-  libavcodec     56. 31.100 / 56. 31.100
-  libavformat    56. 26.101 / 56. 26.101
+ffmpeg version 2.6.1 Copyright (c) 2000-2015 the FFmpeg developers
+  built with Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/2.6.1 --enable-shared --enable-pthreads --enable-gpl --enable-version3 --enable-hardcoded-tables --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-libx264 --enable-libmp3lame --enable-libvo-aacenc --enable-libxvid --enable-vda
+  libavutil      54. 20.100 / 54. 20.100
+  libavcodec     56. 26.100 / 56. 26.100
+  libavformat    56. 25.101 / 56. 25.101
   libavdevice    56.  4.100 / 56.  4.100
-  libavfilter     5. 13.101 /  5. 13.101
+  libavfilter     5. 11.102 /  5. 11.102
+  libavresample   2.  1.  0 /  2.  1.  0
   libswscale      3.  1.101 /  3.  1.101
   libswresample   1.  1.100 /  1.  1.100
   libpostproc    53.  3.100 / 53.  3.100
 Input #0, rawvideo, from 'pipe:':
-  Duration: N/A, start: 0.000000, bitrate: 165888 kb/s
+  Duration: N/A, bitrate: 165888 kb/s
     Stream #0:0: Video: rawvideo (RGB[24] / 0x18424752), rgb24, 640x360, 165888 kb/s, 30 tbr, 30 tbn, 30 tbc
 No pixel format specified, yuv444p for H.264 encoding chosen.
 Use -pix_fmt yuv420p for compatibility with outdated media players.
-[libx264 @ 0000000002d1b420] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2
-[libx264 @ 0000000002d1b420] profile High 4:4:4 Predictive, level 3.0, 4:4:4 8-bit
-[libx264 @ 0000000002d1b420] 264 - core 146 r2538 121396c - H.264/MPEG-4 AVC codec - Copyleft 2003-2015 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=4 threads=3 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=15.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'C:\Users\David\dev\hackjcvd2\hackjcvd\panel_step_one/export/jeanClaude.mp4':
+[libx264 @ 0x7fe8b9825a00] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX
+[libx264 @ 0x7fe8b9825a00] profile High 4:4:4 Predictive, level 3.0, 4:4:4 8-bit
+[libx264 @ 0x7fe8b9825a00] 264 - core 144 r2533 c8a773e - H.264/MPEG-4 AVC codec - Copyleft 2003-2015 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=4 threads=6 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=15.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/Users/sylvaingerme/Documents/Aptana/hackjcvd/panel_step_one/export/jeanClaude.mp4':
   Metadata:
-    encoder         : Lavf56.26.101
+    encoder         : Lavf56.25.101
     Stream #0:0: Video: h264 (libx264) ([33][0][0][0] / 0x0021), yuv444p, 640x360, q=-1--1, 30 fps, 15360 tbn, 30 tbc
     Metadata:
-      encoder         : Lavc56.31.100 libx264
+      encoder         : Lavc56.26.100 libx264
 Stream mapping:
   Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
-frame=   23 fps=0.0 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A    frame=   41 fps= 40 q=0.0 size=       0kB time=00:00:00.00 bitrate=N/A    frame=   48 fps= 31 q=21.0 size=      63kB time=-00:00:00.03 bitrate=N/A    frame=   49 fps= 18 q=21.0 size=     114kB time=00:00:00.00 bitrate=N/A    frame=   53 fps= 15 q=21.0 size=     166kB time=00:00:00.13 bitrate=10192.2kbits/s    frame=   57 fps= 13 q=21.0 size=     215kB time=00:00:00.26 bitrate=6615.0kbits/s    frame=   63 fps= 13 q=21.0 size=     216kB time=00:00:00.46 bitrate=3796.6kbits/s    frame=   65 fps= 12 q=21.0 size=     270kB time=00:00:00.53 bitrate=4149.3kbits/s    frame=   71 fps= 12 q=21.0 size=     271kB time=00:00:00.73 bitrate=3026.2kbits/s    
+frame=    0 fps=0.0 q=0.0 Lsize=       0kB time=00:00:00.00 bitrate=N/A    
+video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
